@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Visit Us - Art and Arbor</title>
+    <link rel="icon" type="image/x-icon" href="art.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <style>
+      .visit-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 6rem;
+        align-items: start;
+        max-width: 1400px;
+        margin: 0 auto;
+      }
+
+      .info-box {
+        background: rgba(255, 255, 255, 0.02);
+        padding: 4rem;
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        transition: var(--transition);
+      }
+
+      .info-box:hover {
+        background: rgba(255, 255, 255, 0.05);
+        border-color: var(--text-light);
+      }
+
+      .info-item {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+        margin-bottom: 3rem;
+      }
+
+      .info-item i {
+        font-size: 1.5rem;
+        color: var(--text-light);
+        width: 30px;
+        text-align: center;
+      }
+
+      .info-text h4 {
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        font-size: 0.8rem;
+        margin-bottom: 0.5rem;
+        opacity: 0.6;
+      }
+
+      .info-text p {
+        font-size: 1.1rem;
+        letter-spacing: 1px;
+        line-height: 1.6;
+      }
+
+      .map-container {
+        width: 100%;
+        height: 100%;
+        min-height: 600px;
+        background: #1a1a1a;
+        border: 1px solid rgba(255, 255, 255, 0.05);
+      }
+
+      @media (max-width: 1024px) {
+        .visit-grid {
+          grid-template-columns: 1fr;
+          gap: 4rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav class="navbar">
+        <div class="logo">
+          <a href="index.html" style="color: inherit; text-decoration: none"
+            >Art and Arbor</a
+          >
+        </div>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="menu.html">Menu</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <div class="burger">
+          <div class="line1"></div>
+          <div class="line2"></div>
+          <div class="line3"></div>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section id="visit" class="section reveal" style="padding-top: 120px">
+        <h2 class="section-title reveal">Visit Us</h2>
+        <div class="visit-grid">
+          <div class="info-box reveal">
+            <div class="info-item">
+              <i class="fas fa-map-marker-alt"></i>
+              <div class="info-text">
+                <h4>Location</h4>
+                <p>
+                  Third Floor, Plot no: 2, West Marredpally, Secunderabad,
+                  Hyderabad, Telangana 500026
+                </p>
+              </div>
+            </div>
+            <div class="info-item">
+              <i class="fas fa-phone"></i>
+              <div class="info-text">
+                <h4>Contact</h4>
+                <p>(555) 123-4567</p>
+              </div>
+            </div>
+            <div class="info-item">
+              <i class="fas fa-clock"></i>
+              <div class="info-text">
+                <h4>Hours</h4>
+                <p>Mon-Sun: 7:00 AM - 8:00 PM</p>
+              </div>
+            </div>
+            <div class="info-item">
+              <i class="fas fa-envelope"></i>
+              <div class="info-text">
+                <h4>Email</h4>
+                <p>hello@artandarbor.com</p>
+              </div>
+            </div>
+
+            <form class="contact-form reveal" style="margin-top: 4rem">
+              <h4
+                style="
+                  text-transform: uppercase;
+                  letter-spacing: 3px;
+                  font-size: 0.8rem;
+                  margin-bottom: 2rem;
+                  opacity: 0.6;
+                "
+              >
+                Send a Message
+              </h4>
+              <input type="text" placeholder="Name" required />
+              <input type="email" placeholder="Email" required />
+              <textarea placeholder="Message" rows="4" required></textarea>
+              <button type="submit" class="cta-btn" style="width: 100%">
+                Send Message
+              </button>
+            </form>
+          </div>
+          <div class="map-container reveal">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3806.335914164805!2d78.5033481!3d17.4436214!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb9ba2612921eb%3A0x2f39354c1c08854b!2sArt%20%26%20Arbor%20Cafe!5e0!3m2!1sen!2sin!4v1735017255000!5m2!1sen!2sin"
+              width="100%"
+              height="100%"
+              style="border: 0; min-height: 500px"
+              allowfullscreen=""
+              loading="lazy"
+            >
+            </iframe>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer-content">
+        <div class="socials">
+          <a href="#"><i class="fab fa-facebook"></i></a>
+          <a href="https://www.instagram.com/artandarborcafe/" target="_blank"
+            ><i class="fab fa-instagram"></i
+          ></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+        </div>
+        <p>&copy; 2024 Art and Arbor. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

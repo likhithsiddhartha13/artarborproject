@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gallery - Art and Arbor</title>
+    <link rel="icon" type="image/x-icon" href="art.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <style>
+      .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+        grid-auto-rows: 400px;
+        gap: 1.5rem;
+        max-width: 1600px;
+        margin: 0 auto;
+      }
+
+      .gallery-item {
+        position: relative;
+        overflow: hidden;
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        transition: var(--transition);
+        cursor: pointer;
+      }
+
+      /* Masonry-like effect with spans */
+      .gallery-item.wide {
+        grid-column: span 2;
+      }
+
+      .gallery-item.tall {
+        grid-row: span 2;
+      }
+
+      .gallery-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: var(--transition);
+      }
+
+      .gallery-item:hover img {
+        transform: scale(1.05);
+      }
+
+      .gallery-overlay {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        padding: 2rem;
+        background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+        color: var(--text-light);
+        opacity: 0;
+        transition: var(--transition);
+        transform: translateY(20px);
+      }
+
+      .gallery-item:hover .gallery-overlay {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .gallery-overlay h4 {
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        font-size: 0.8rem;
+        font-weight: 300;
+      }
+
+      /* Lightbox Styles */
+      .lightbox {
+        display: none;
+        position: fixed;
+        z-index: 2000;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.95);
+        backdrop-filter: blur(10px);
+        justify-content: center;
+        align-items: center;
+        opacity: 0;
+        transition: opacity 0.4s ease;
+      }
+
+      .lightbox.active {
+        display: flex;
+        opacity: 1;
+      }
+
+      .lightbox-content {
+        max-width: 90%;
+        max-height: 90%;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+        transform: scale(0.9);
+        transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+      }
+
+      .lightbox.active .lightbox-content {
+        transform: scale(1);
+      }
+
+      .lightbox-close {
+        position: absolute;
+        top: 30px;
+        right: 40px;
+        color: white;
+        font-size: 2rem;
+        cursor: pointer;
+        transition: var(--transition);
+      }
+
+      .lightbox-close:hover {
+        transform: rotate(90deg);
+        color: #888;
+      }
+
+      @media (max-width: 768px) {
+        .gallery-grid {
+          grid-template-columns: 1fr;
+          grid-auto-rows: 300px;
+        }
+        .gallery-item.wide,
+        .gallery-item.tall {
+          grid-column: span 1;
+          grid-row: span 1;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav class="navbar">
+        <div class="logo">
+          <a href="index.html" style="color: inherit; text-decoration: none"
+            >Art and Arbor</a
+          >
+        </div>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="menu.html">Menu</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <div class="burger">
+          <div class="line1"></div>
+          <div class="line2"></div>
+          <div class="line3"></div>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section
+        id="gallery"
+        class="gallery section reveal"
+        style="padding-top: 120px"
+      >
+        <h2 class="section-title reveal">Gallery</h2>
+        <div class="gallery-grid">
+          <div class="gallery-item wide reveal" onclick="openLightbox(this)">
+            <img src="Capture1.JPG" alt="Atmosphere" />
+            <div class="gallery-overlay">
+              <h4>Artisan Atmosphere</h4>
+            </div>
+          </div>
+          <div class="gallery-item tall reveal" onclick="openLightbox(this)">
+            <img src="Capture.JPG" alt="Coffee Brewing" />
+            <div class="gallery-overlay">
+              <h4>The Perfect Pour</h4>
+            </div>
+          </div>
+          <div class="gallery-item reveal" onclick="openLightbox(this)">
+            <img src="Capture2.JPG" alt="Fresh Pastries" />
+            <div class="gallery-overlay">
+              <h4>Daily Bakes</h4>
+            </div>
+          </div>
+          <div class="gallery-item reveal" onclick="openLightbox(this)">
+            <img src="Capture3.JPG" alt="Latte Art" />
+            <div class="gallery-overlay">
+              <h4>Signature Art</h4>
+            </div>
+          </div>
+          <div class="gallery-item tall reveal" onclick="openLightbox(this)">
+            <img
+              src="https://images.unsplash.com/photo-1507133750040-4a8f57021571?auto=format&fit=crop&q=80&w=600"
+              alt="Pastry Detail"
+            />
+            <div class="gallery-overlay">
+              <h4>Artisanal Detail</h4>
+            </div>
+          </div>
+          <div class="gallery-item wide reveal" onclick="openLightbox(this)">
+            <img
+              src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?auto=format&fit=crop&q=80&w=800"
+              alt="Coffee Beans"
+            />
+            <div class="gallery-overlay">
+              <h4>Quality Beans</h4>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+      <span class="lightbox-close">&times;</span>
+      <img
+        class="lightbox-content"
+        id="lightbox-img"
+        src=""
+        alt="Full Screen View"
+      />
+    </div>
+
+    <footer>
+      <div class="footer-content">
+        <div class="socials">
+          <a href="#"><i class="fab fa-facebook"></i></a>
+          <a href="https://www.instagram.com/artandarborcafe/" target="_blank"
+            ><i class="fab fa-instagram"></i
+          ></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+        </div>
+        <p>&copy; 2024 Art and Arbor. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script>
+      function openLightbox(element) {
+        const lightbox = document.getElementById("lightbox");
+        const lightboxImg = document.getElementById("lightbox-img");
+        const imgSrc = element.querySelector("img").src;
+
+        lightboxImg.src = imgSrc;
+        lightbox.classList.add("active");
+        document.body.style.overflow = "hidden"; // Prevent scrolling
+      }
+
+      function closeLightbox() {
+        const lightbox = document.getElementById("lightbox");
+        lightbox.classList.remove("active");
+        document.body.style.overflow = "auto"; // Restore scrolling
+      }
+
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") closeLightbox();
+      });
+    </script>
+    <script src="script.js"></script>
+  </body>
+</html>

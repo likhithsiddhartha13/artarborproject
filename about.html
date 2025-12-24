@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Us - Art and Arbor</title>
+    <link rel="icon" type="image/x-icon" href="art.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <style>
+      .about-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 8rem;
+        align-items: center;
+        max-width: 1400px;
+        margin: 0 auto;
+      }
+
+      .about-content {
+        padding-right: 2rem;
+      }
+
+      .about-content h2 {
+        text-align: left;
+        border-bottom: none;
+        padding-bottom: 0;
+        margin-bottom: 3rem;
+        width: auto;
+        display: block;
+      }
+
+      .about-content p {
+        font-size: 1.2rem;
+        line-height: 2.2;
+        color: #bbb;
+        margin-bottom: 2rem;
+        font-weight: 300;
+        letter-spacing: 0.5px;
+      }
+
+      .about-visual {
+        position: relative;
+      }
+
+      .about-visual img {
+        width: 100%;
+        height: 700px;
+        object-fit: cover;
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        box-shadow: 0 40px 80px rgba(0, 0, 0, 0.6);
+      }
+
+      .stat-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
+        margin-top: 5rem;
+      }
+
+      .stat-item h3 {
+        font-size: 3rem;
+        color: var(--text-light);
+        margin-bottom: 0.5rem;
+        font-weight: 300;
+      }
+
+      .stat-item p {
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        color: #666;
+      }
+
+      @media (max-width: 1024px) {
+        .about-grid {
+          grid-template-columns: 1fr;
+          gap: 6rem;
+        }
+        .about-content {
+          padding-right: 0;
+          text-align: center;
+        }
+        .about-content h2 {
+          text-align: center;
+        }
+        .about-visual img {
+          height: 500px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav class="navbar">
+        <div class="logo">
+          <a href="index.html" style="color: inherit; text-decoration: none"
+            >Art and Arbor</a
+          >
+        </div>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="menu.html">Menu</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <div class="burger">
+          <div class="line1"></div>
+          <div class="line2"></div>
+          <div class="line3"></div>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section id="about" class="section reveal" style="padding-top: 120px">
+        <div class="about-grid">
+          <div class="about-content reveal">
+            <h2 class="section-title">Our Story</h2>
+            <p>
+              Founded with a vision to redefine the urban coffee experience, Art
+              and Arbor began as a humble aspiration to merge fine art with the
+              artisanal craft of roasting. We believe that every cup of coffee
+              tells a story of its origin, its journey, and the hands that
+              prepared it.
+            </p>
+            <p>
+              Our sanctuary in the heart of the city is designed for those who
+              seek more than just caffeine. It's a space where creativity meets
+              soul, where every bean is ethically sourced and every pastry is an
+              architectural masterpiece.
+            </p>
+
+            <div class="stat-grid">
+              <div class="stat-item reveal">
+                <h3>14+</h3>
+                <p>Years of Craft</p>
+              </div>
+              <div class="stat-item reveal">
+                <h3>100%</h3>
+                <p>Ethical Sourcing</p>
+              </div>
+            </div>
+          </div>
+          <div class="about-visual reveal">
+            <img src="Capture2.JPG" alt="Cafe Philosophy" />
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer-content">
+        <div class="socials">
+          <a href="#"><i class="fab fa-facebook"></i></a>
+          <a href="https://www.instagram.com/artandarborcafe/" target="_blank"
+            ><i class="fab fa-instagram"></i
+          ></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+        </div>
+        <p>&copy; 2024 Art and Arbor. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
